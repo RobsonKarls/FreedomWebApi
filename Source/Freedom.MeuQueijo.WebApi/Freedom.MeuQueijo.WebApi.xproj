@@ -6,19 +6,11 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>01239546-c86b-412d-a6d0-09d513348ac0</ProjectGuid>
+    <ProjectGuid>16bd59eb-f9dc-4987-9669-40af42f14e71</ProjectGuid>
     <RootNamespace>Freedom.MeuQueijo.WebApi</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <SccProjectName>
-    </SccProjectName>
-    <SccProvider>
-    </SccProvider>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccLocalPath>
-    </SccLocalPath>
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
