@@ -2,16 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Freedom.Domain.Entities;
+using Freedom.Infrastructure.DataAccess;
+using Freedom.Infrastructure.DataAccess.Base;
+using Freedom.Infrastructure.DataAccess.Factories;
+using Freedom.Infrastructure.DataAccess.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 
 namespace Freedom.MeuQueijo.WebApi
 {
     public class Startup
     {
+
+        protected static UnitOfWork UnitOfWork;
+        protected static FreedomDbContext _context;
+
+        protected readonly string ConnectionString = "MeuQueijo";
+
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -37,7 +50,16 @@ namespace Freedom.MeuQueijo.WebApi
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddMvc();
+            _context = new DataContextFactory(Configuration["Data:ConnectionString"]).GetContext();
+
+            services.AddScoped( (_) => _context);
+
+            services.AddMvc().AddJsonOptions(
+                j => j.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
+            
+            //injections
+            services.AddScoped<IDbContext, FreedomDbContext>();
+            services.AddScoped<IRepository<Product>>( s => new Repository<Product>(_context));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline

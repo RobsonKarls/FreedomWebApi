@@ -4,18 +4,19 @@ using System.Linq;
 using Freedom.Infrastructure.DataAccess.Factories;
 using System.Data.Entity.Validation;
 using System;
+using Freedom.Infrastructure.DataAccess.Base;
 
 namespace Freedom.Infrastructure.DataAccess
 {
     public class UnitOfWork
     {
-        public UnitOfWork(FreedomDbContext context)
+        public UnitOfWork(IDbContext context)
         {
 
             Context = context;
         }
 
-        protected FreedomDbContext Context { get; private set; }
+        protected IDbContext Context { get; private set; }
 
         public virtual void Commit()
         {

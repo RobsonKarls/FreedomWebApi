@@ -7,17 +7,22 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Reflection;
 using Freedom.Domain.Core;
 using Freedom.Domain.Entities;
+using Freedom.Infrastructure.DataAccess.Base;
 using Freedom.Infrastructure.DataAccess.Conventions;
 using Freedom.Labs.Components;
 
 namespace Freedom.Infrastructure.DataAccess.Factories
 {
-    public class FreedomDbContext : DbContext
+    [DbConfigurationType(typeof(CodeConfig))]
+    public class FreedomDbContext : DbContext, IDbContext
     {
         readonly IDictionary<MethodInfo, object> _configurations;
         public DbSet<User> Users { get; set; }
         public DbSet<LoginProvider> LoginProviders { get; set; }
         public DbSet<Group> Groups { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Farm> Farms { get; set; }
 
         public FreedomDbContext(string nameOrConnectionString, IDictionary<MethodInfo, object> configurations) : base(nameOrConnectionString)
         {
@@ -95,6 +100,15 @@ namespace Freedom.Infrastructure.DataAccess.Factories
             }
 
             base.OnModelCreating(modelBuilder);
+        }
+    }
+
+    public class CodeConfig : DbConfiguration
+    {
+        public CodeConfig()
+        {
+            SetProviderServices("System.Data.SqlClient",
+            System.Data.Entity.SqlServer.SqlProviderServices.Instance);
         }
     }
 }

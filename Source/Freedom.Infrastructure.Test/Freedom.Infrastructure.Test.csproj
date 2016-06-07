@@ -73,6 +73,7 @@
     <Compile Include="DataContextFactorySpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GrupoTest.cs" />
+    <Compile Include="Repositories\ProductTest.cs" />
     <Compile Include="Repositories\UsuarioTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,9 +102,7 @@
       <Name>Freedom.Labs</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>

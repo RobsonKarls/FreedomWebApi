@@ -3,6 +3,20 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.6.1": {
+      "EntityFramework/6.1.3": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
       "Libuv/1.9.0-rc2-20901": {
         "type": "package",
         "runtimeTargets": {
@@ -1819,10 +1833,56 @@
         "runtime": {
           "lib/net46/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "Freedom.Domain/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Freedom.Domain.Core": "1.0.0"
+        }
+      },
+      "Freedom.Domain.Core/1.0.0": {
+        "type": "project"
+      },
+      "Freedom.Infrastructure.DataAccess/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Freedom.Domain": "1.0.0",
+          "Freedom.Domain.Core": "1.0.0",
+          "Freedom.Labs": "1.0.0"
+        }
+      },
+      "Freedom.Labs/1.0.0": {
+        "type": "project"
       }
     }
   },
   "libraries": {
+    "EntityFramework/6.1.3": {
+      "sha512": "2xzFHAF3VVdmTR3//MygtQpwfbDjeaq+nQwCcokLzen7MKHOojPaxNPQPa4diHY1QtcR7zlHAJHNRqPB7W2Syw==",
+      "type": "package",
+      "files": [
+        "EntityFramework.6.1.3.nupkg.sha512",
+        "EntityFramework.nuspec",
+        "content/App.config.transform",
+        "content/Web.config.transform",
+        "lib/net40/EntityFramework.SqlServer.dll",
+        "lib/net40/EntityFramework.SqlServer.xml",
+        "lib/net40/EntityFramework.dll",
+        "lib/net40/EntityFramework.xml",
+        "lib/net45/EntityFramework.SqlServer.dll",
+        "lib/net45/EntityFramework.SqlServer.xml",
+        "lib/net45/EntityFramework.dll",
+        "lib/net45/EntityFramework.xml",
+        "tools/EntityFramework.PowerShell.Utility.dll",
+        "tools/EntityFramework.PowerShell.dll",
+        "tools/EntityFramework.psd1",
+        "tools/EntityFramework.psm1",
+        "tools/about_EntityFramework.help.txt",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/migrate.exe"
+      ]
+    },
     "Libuv/1.9.0-rc2-20901": {
       "sha512": "NW+YOuRDrlmGM6yjSRjJUqlHukDEqUTuZKVJvEzWV4LH8wEKqrmVcxTqAab87+UiQ3KOLsyaBJ3ZNdmzxFUTig==",
       "type": "package",
@@ -5454,10 +5514,27 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "Freedom.Domain/1.0.0": {
+      "type": "project",
+      "msbuildProject": "../Freedom.Domain/Freedom.Domain.csproj"
+    },
+    "Freedom.Domain.Core/1.0.0": {
+      "type": "project",
+      "msbuildProject": "../Freedom.Domain.Core/Freedom.Domain.Core.csproj"
+    },
+    "Freedom.Infrastructure.DataAccess/1.0.0": {
+      "type": "project",
+      "msbuildProject": "../Freedom.Infrastructure.DataAccess/Freedom.Infrastructure.DataAccess.csproj"
+    },
+    "Freedom.Labs/1.0.0": {
+      "type": "project",
+      "msbuildProject": "../Freedom.Labs/Freedom.Labs.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
+      "EntityFramework >= 6.1.3",
       "Microsoft.ApplicationInsights.AspNetCore >= 1.0.0-rc2-final",
       "Microsoft.AspNetCore.Mvc >= 1.0.0-rc2-final",
       "Microsoft.AspNetCore.Server.IISIntegration >= 1.0.0-rc2-final",
@@ -5469,7 +5546,10 @@
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc2-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc2-final"
     ],
-    ".NETFramework,Version=v4.6.1": []
+    ".NETFramework,Version=v4.6.1": [
+      "Freedom.Domain",
+      "Freedom.Infrastructure.DataAccess"
+    ]
   },
   "tools": {
     ".NETCoreApp,Version=v1.0": {

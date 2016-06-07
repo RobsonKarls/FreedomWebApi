@@ -65,8 +65,8 @@ namespace Freedom.Infrastructure.Test.Repositories
 
         Because of = () =>
         {
-            _user = _repository.Find(x => x.Id == 4);
-            _oldUser = _repository.Find(x => x.Id == 4);
+            _user = _repository.Find(x => x.Id == 1);
+            _oldUser = _repository.Find(x => x.Id == 1);
             _user.Cpf = "00000000000";
             _repository.Save(_user);
             _oldModifiedDate = _user.Modified;
@@ -75,15 +75,15 @@ namespace Freedom.Infrastructure.Test.Repositories
         };
 
         It deve_passar_pelo_check_de_password = () =>
-            _repository.Find(u => u.Id == 4).Password.ShouldEqual<String>(Password.CreateHashFrom("Novasenha"));
+            _repository.Find(u => u.Id == 1).Password.ShouldEqual<String>(Password.CreateHashFrom("Novasenha"));
 
         It data_de_atualizacao_deve_ser_maior_que_antes_da_atualizacao = () =>
-            _repository.Find(u => u.Id == 4).Modified.ShouldBeGreaterThan(_oldModifiedDate);
+            _repository.Find(u => u.Id == 1).Modified.ShouldBeGreaterThan(_oldModifiedDate);
 
         It campo_cpf_deve_estar_preenchido = () =>
-            _repository.Find(u => u.Id == 4).Cpf.ShouldNotBeNull();
+            _repository.Find(u => u.Id == 1).Cpf.ShouldNotBeNull();
 
         It cpf_should_change = () =>
-            _repository.Find(u => u.Id == 4).Cpf.ShouldBeEqualIgnoringCase("00000000000");
+            _repository.Find(u => u.Id == 1).Cpf.ShouldBeEqualIgnoringCase("00000000000");
     }
 }

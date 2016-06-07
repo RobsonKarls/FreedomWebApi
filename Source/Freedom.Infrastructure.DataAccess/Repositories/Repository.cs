@@ -5,20 +5,18 @@ using Freedom.Domain.Core;
 using Freedom.Infrastructure.DataAccess.Factories;
 using System.Linq.Expressions;
 using System.Data.Entity;
+using Freedom.Infrastructure.DataAccess.Base;
 
 namespace Freedom.Infrastructure.DataAccess.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity, IAggregateRoot
     {
-        public Repository(FreedomDbContext context)
+        public Repository(IDbContext context)
         {
-            if (context == null)
-                throw new ArgumentNullException("context");
-
             Context = context;
         }
 
-        protected FreedomDbContext Context { get; private set; }
+        protected IDbContext Context { get; private set; }
 
         public virtual void Save(TEntity instance)
         {
