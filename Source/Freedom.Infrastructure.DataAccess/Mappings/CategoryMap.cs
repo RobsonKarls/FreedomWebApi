@@ -11,7 +11,7 @@ namespace Freedom.Infrastructure.DataAccess.Mappings
             Property(x => x.Created).HasColumnType("DateTime");
             Property(x => x.Modified).HasColumnType("DateTime");
             //relationship 
-            HasOptional(x=>x.Parent).WithMany().HasForeignKey(x =>x.ParentId).WillCascadeOnDelete(false);
+            HasOptional(x => x.Parent);
         }
     }
 }

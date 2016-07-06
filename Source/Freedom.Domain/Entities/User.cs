@@ -7,7 +7,7 @@ namespace Freedom.Domain.Entities
     public class User : Entity, IAggregateRoot
     {
         public Group Group { get; set; }
-        public int GroupId { get; set; }
+        public Address Address { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

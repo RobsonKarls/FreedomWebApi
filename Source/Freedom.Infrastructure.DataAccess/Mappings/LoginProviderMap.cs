@@ -9,9 +9,11 @@ namespace Freedom.Infrastructure.DataAccess.Mappings
         {
             HasKey(x => x.Id);
             Property(x => x.Provider).HasColumnType("smallint");
-            Property(x => x.ProviderUserId).HasColumnType("int");
-            Property(x => x.EncryptedToken).HasColumnType("varchar").HasMaxLength(64);
-            HasOptional(x => x.User);
+            Property(x => x.EncryptedToken).HasColumnType("nvarchar").HasMaxLength(64);
+
+            #region RELATIOSHIP
+            HasRequired(x => x.User);
+            #endregion
         }
     }
 }

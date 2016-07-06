@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Freedom.Domain.Entities;
 using Freedom.Infrastructure.DataAccess;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +20,5 @@ namespace Freedom.MeuQueijo.WebApi.Controllers
         {
             return _repository.All();
         }
-
-
     }
 }

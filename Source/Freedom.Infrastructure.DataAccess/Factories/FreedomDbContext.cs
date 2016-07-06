@@ -23,6 +23,8 @@ namespace Freedom.Infrastructure.DataAccess.Factories
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Farm> Farms { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
         public FreedomDbContext(string nameOrConnectionString, IDictionary<MethodInfo, object> configurations) : base(nameOrConnectionString)
         {

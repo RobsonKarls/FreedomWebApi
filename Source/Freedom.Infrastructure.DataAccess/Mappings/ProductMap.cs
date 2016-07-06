@@ -11,12 +11,15 @@ namespace Freedom.Infrastructure.DataAccess.Mappings
 
             Property(x => x.Created).HasColumnType("DateTime");
             Property(x => x.Modified).HasColumnType("DateTime");
-            Property(x => x.CategoryId).IsRequired();
-            Property(x => x.FarmId).IsRequired();
+            Property(x => x.BidPrice).HasColumnType("Decimal");
 
-            //relationship BelongsTo
-            HasRequired(x => x.Farm).WithMany().HasForeignKey(u => u.FarmId).WillCascadeOnDelete(false);
-            HasRequired(x => x.Category).WithMany().HasForeignKey(u => u.CategoryId).WillCascadeOnDelete(false);
+            #region RELATIONSHIP
+            //BelongsTo
+            HasRequired(x => x.Farm);
+            HasRequired(x => x.Category);
+
+            HasMany(x => x.Images);
+            #endregion
 
         }
     }

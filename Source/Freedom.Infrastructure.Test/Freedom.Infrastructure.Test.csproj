@@ -72,7 +72,9 @@
     <Compile Include="DatabaseSpec.cs" />
     <Compile Include="DataContextFactorySpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CategoryTest.cs" />
     <Compile Include="Repositories\GrupoTest.cs" />
+    <Compile Include="Repositories\OrderTest.cs" />
     <Compile Include="Repositories\ProductTest.cs" />
     <Compile Include="Repositories\UsuarioTest.cs" />
   </ItemGroup>

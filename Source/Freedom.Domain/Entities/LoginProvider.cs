@@ -7,7 +7,6 @@ namespace Freedom.Domain.Entities
     public class LoginProvider : Entity, IEntity
     {
         public User User { get; set; }
-        public int ProviderUserId { get; set; }
         public Provider Provider { get; set; }
         public string EncryptedToken { get; set; }
         public DateTime Created { get; set; }

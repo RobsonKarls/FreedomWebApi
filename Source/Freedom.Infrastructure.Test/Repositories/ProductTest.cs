@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Freedom.Domain.Entities;
-using Freedom.Domain.Enum;
-using Freedom.Infrastructure.DataAccess.Factories;
+﻿using Freedom.Domain.Entities;
 using Freedom.Infrastructure.DataAccess.Repositories;
 using Machine.Specifications;
 
@@ -19,10 +16,9 @@ namespace Freedom.Infrastructure.Test.Repositories
         {
             _product = new Product
             {
-                Category = new Category {ParentId = null, Title = "Derivados do Leite"},
+                Category = new Category {Parent = null, Title = "Queijos", CategoryImage = "http://superbeal.com.br/files/post_foto/photo/190/20141013154559543c1de78fa0a.jpg" },
                 Farm = new Farm {Name = "Sitio do Gilmar"},
-                MeasureUnit = MeasureUnit.Kilograms,
-                Size = 1.1,
+                Volume = 1,
                 Name = "Queijo Minas"
             };
             _repository.Save(_product);

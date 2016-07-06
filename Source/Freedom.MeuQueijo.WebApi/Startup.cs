@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Freedom.Domain.Entities;
+﻿using Freedom.Domain.Entities;
 using Freedom.Infrastructure.DataAccess;
 using Freedom.Infrastructure.DataAccess.Base;
 using Freedom.Infrastructure.DataAccess.Factories;
@@ -22,7 +18,7 @@ namespace Freedom.MeuQueijo.WebApi
         protected static UnitOfWork UnitOfWork;
         protected static FreedomDbContext _context;
 
-        protected readonly string ConnectionString = "MeuQueijo";
+        protected readonly string ConnectionString = "MadeNaRoca";
 
 
         public Startup(IHostingEnvironment env)
@@ -59,7 +55,9 @@ namespace Freedom.MeuQueijo.WebApi
             
             //injections
             services.AddScoped<IDbContext, FreedomDbContext>();
-            services.AddScoped<IRepository<Product>>( s => new Repository<Product>(_context));
+            services.AddTransient<IRepository<Product>>( s => new Repository<Product>(_context));
+            services.AddTransient<IRepository<Category>>(s => new Repository<Category>(_context));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline

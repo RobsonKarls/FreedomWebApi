@@ -23,6 +23,6 @@ D:\TFS\Freedom\Source\Freedom.Labs\obj\Debug\Freedom.Labs.pdb
 D:\TFS\Freedom\Source\Freedom.Labs\obj\Debug\Freedom.Labs.csprojResolveAssemblyReference.cache
 D:\Dev\Freedom\Source\Freedom.Labs\bin\Debug\Freedom.Labs.dll
 D:\Dev\Freedom\Source\Freedom.Labs\bin\Debug\Freedom.Labs.pdb
+D:\Dev\Freedom\Source\Freedom.Labs\obj\Debug\Freedom.Labs.csprojResolveAssemblyReference.cache
 D:\Dev\Freedom\Source\Freedom.Labs\obj\Debug\Freedom.Labs.dll
 D:\Dev\Freedom\Source\Freedom.Labs\obj\Debug\Freedom.Labs.pdb
-D:\Dev\Freedom\Source\Freedom.Labs\obj\Debug\Freedom.Labs.csprojResolveAssemblyReference.cache

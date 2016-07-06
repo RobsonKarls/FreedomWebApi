@@ -8,7 +8,7 @@ using System;
 namespace Freedom.Infrastructure.Test.Repositories
 {
     [Subject(typeof(User))]
-    class UserTest : DatabaseSpec
+    class When_user_data_is_saved : DatabaseSpec
     {
         static UserRepository _repository;
         static User _usuario;
@@ -27,7 +27,8 @@ namespace Freedom.Infrastructure.Test.Repositories
                 LastName = "Custódio",
                 Password = "Novasenha",
                 Status = UserStatus.Active,
-                Group = new Group { Active = true, Description = "Admins group", Name = "Admin", Modified = DateTime.Now, Created = DateTime.Now}
+                Group = new Group { Active = true, Description = "Admins group", Name = "Admin", Modified = DateTime.Now, Created = DateTime.Now },
+                Address = new Address { AddressLine1 = "Rua 1600", Number = "32", ZipCode = "78075790", City = "Cuiabá", State = "MT", Country = "Brasil", }
             };
 
             _repository.Save(_usuario);
@@ -46,6 +47,9 @@ namespace Freedom.Infrastructure.Test.Repositories
 
         It should_not_have_user_without_group = () =>
             _usuario.Group.ShouldNotBeNull();
+
+        It should_not_have_user_without_address = () =>
+            _usuario.Address.ShouldNotBeNull();
     }
 
     [Subject(typeof(User))]
@@ -54,6 +58,8 @@ namespace Freedom.Infrastructure.Test.Repositories
         static UserRepository _repository;
         static User _user;
         private static User _oldUser;
+
+        static private int _userId = 2;
 
         /// <summary>
         /// Data de update antes da atualizacao
@@ -65,8 +71,8 @@ namespace Freedom.Infrastructure.Test.Repositories
 
         Because of = () =>
         {
-            _user = _repository.Find(x => x.Id == 1);
-            _oldUser = _repository.Find(x => x.Id == 1);
+            _user = _repository.Find(x => x.Id == _userId);
+            _oldUser = _repository.Find(x => x.Id == _userId);
             _user.Cpf = "00000000000";
             _repository.Save(_user);
             _oldModifiedDate = _user.Modified;
@@ -75,15 +81,15 @@ namespace Freedom.Infrastructure.Test.Repositories
         };
 
         It deve_passar_pelo_check_de_password = () =>
-            _repository.Find(u => u.Id == 1).Password.ShouldEqual<String>(Password.CreateHashFrom("Novasenha"));
+            _repository.Find(u => u.Id == _userId).Password.ShouldEqual<String>(Password.CreateHashFrom("Novasenha"));
 
         It data_de_atualizacao_deve_ser_maior_que_antes_da_atualizacao = () =>
-            _repository.Find(u => u.Id == 1).Modified.ShouldBeGreaterThan(_oldModifiedDate);
+            _repository.Find(u => u.Id == _userId).Modified.ShouldBeGreaterThan(_oldModifiedDate);
 
         It campo_cpf_deve_estar_preenchido = () =>
-            _repository.Find(u => u.Id == 1).Cpf.ShouldNotBeNull();
+            _repository.Find(u => u.Id == _userId).Cpf.ShouldNotBeNull();
 
         It cpf_should_change = () =>
-            _repository.Find(u => u.Id == 1).Cpf.ShouldBeEqualIgnoringCase("00000000000");
+            _repository.Find(u => u.Id == _userId).Cpf.ShouldBeEqualIgnoringCase("00000000000");
     }
 }

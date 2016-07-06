@@ -48,16 +48,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Farm.cs" />
     <Compile Include="Entities\Group.cs" />
+    <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\LoginProvider.cs" />
+    <Compile Include="Entities\AggregatorType.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderItem.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enum\ImageTypes.cs" />
     <Compile Include="Enum\ItemTypes.cs" />
     <Compile Include="Enum\MeasureUnit.cs" />
+    <Compile Include="Enum\OrderStatus.cs" />
+    <Compile Include="Enum\OrderType.cs" />
+    <Compile Include="Enum\PaymentType.cs" />
     <Compile Include="Enum\PhoneOS.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Enum\PriceType.cs" />
     <Compile Include="Enum\Provider.cs" />
     <Compile Include="Enum\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

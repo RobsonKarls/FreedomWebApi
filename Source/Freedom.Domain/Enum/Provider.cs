@@ -3,9 +3,6 @@
     public enum Provider : byte
     {
         Facebook,
-        Google,
-        OpenId,
-        Twitter,
-        MadeNaRoca
+        Google
     }
 }

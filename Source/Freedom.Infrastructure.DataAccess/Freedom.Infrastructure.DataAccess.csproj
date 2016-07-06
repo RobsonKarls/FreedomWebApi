@@ -65,10 +65,14 @@
     <Compile Include="Factories\DataContextFactory.cs" />
     <Compile Include="Factories\FreedomDbContext.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Mappings\AddressMap.cs" />
     <Compile Include="Mappings\CategoryMap.cs" />
     <Compile Include="Mappings\FarmMap.cs" />
     <Compile Include="Mappings\GroupMap.cs" />
+    <Compile Include="Mappings\ImageMap.cs" />
     <Compile Include="Mappings\LoginProviderMap.cs" />
+    <Compile Include="Mappings\OrderItemMap.cs" />
+    <Compile Include="Mappings\OrderMap.cs" />
     <Compile Include="Mappings\ProductMap.cs" />
     <Compile Include="Mappings\UserMap.cs" />
     <Compile Include="Mappings\ValueObjectMap.cs" />

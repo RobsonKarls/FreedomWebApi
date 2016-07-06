@@ -20,7 +20,7 @@ namespace Freedom.Infrastructure.Test
 
         Establish context = () =>
         {
-            ContextFactory = new DataContextFactory("MeuQueijo");
+            ContextFactory = new DataContextFactory("MadeNaRoca");
             var context = ContextFactory.GetContext();
             UnitOfWork = new UnitOfWork(context);
 
@@ -38,8 +38,8 @@ namespace Freedom.Infrastructure.Test
 
         Cleanup on_exit = () =>
         {
-            //transaction.Commit();
-            transaction.Rollback();
+            transaction.Commit();
+            //transaction.Rollback();
 
             transaction.Dispose();
 

@@ -16,10 +16,13 @@ namespace Freedom.Infrastructure.DataAccess.Mappings
             Property(x => x.Status).HasColumnType("smallint");
             Property(x => x.Created).HasColumnType("DateTime");
             Property(x => x.Modified).HasColumnType("DateTime");
-            Property(x => x.GroupId).IsRequired();
 
-            //relationship
-            HasRequired(x => x.Group).WithMany().HasForeignKey(u => u.GroupId).WillCascadeOnDelete(false);
+            #region RELATIONSHIP
+            HasRequired(x => x.Group);
+            HasRequired(x => x.Address);
+            #endregion
+
+
         }
     }
 }

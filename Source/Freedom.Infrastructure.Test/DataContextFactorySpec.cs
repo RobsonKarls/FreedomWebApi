@@ -19,7 +19,9 @@ namespace Freedom.Infrastructure.Test
             List<string> availableMappings = Assembly.Load("Freedom.Domain").GetExportedTypes().Where(t =>
                 t.IsClass &&
                 !t.IsAbstract &&
-                //(typeof(IEntity).IsAssignableFrom(t) || typeof(IValueObject).IsAssignableFrom(t)))
+                // the ValueObject is inherating from IEntity so this  condition is useless
+                // but better keep just in case
+                //(typeof(IEntity).IsAssignableFrom(t) || typeof(ValueObject).IsAssignableFrom(t)))
                 (typeof(IEntity).IsAssignableFrom(t)))
                 .Select(t => t.Name)
                 .ToList();

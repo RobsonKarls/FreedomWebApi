@@ -10,6 +10,7 @@ namespace Freedom.Domain.Enum
     {
         Kilograms,
         Mililitters,
-        Grams
+        Grams,
+        Unit
     }
 }

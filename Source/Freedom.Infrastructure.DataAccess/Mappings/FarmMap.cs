@@ -8,8 +8,6 @@ namespace Freedom.Infrastructure.DataAccess.Mappings
         public FarmMap()
         {
             HasKey(x => x.Id);
-            Property(x => x.Created).HasColumnType("DateTime");
-            Property(x => x.Modified).HasColumnType("DateTime");
         }
     }
 }

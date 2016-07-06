@@ -1,7 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:Boolean x:Key="/Default/CoverageSessionsPersistenceManagerSettings/SessionPersistentData/=CE72B7DD3ABD497D9EA8594DA046F06C/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/CoverageSessionsPersistenceManagerSettings/SessionPersistentData/=CE72B7DD3ABD497D9EA8594DA046F06C/ProductVersion/@EntryValue">2016.1</s:String>
-	<s:String x:Key="/Default/CoverageSessionsPersistenceManagerSettings/SessionPersistentData/=CE72B7DD3ABD497D9EA8594DA046F06C/SnapshotLocation/@EntryValue">C:\Users\Robison\AppData\Local\Temp\ssm.Nahofob.tmp</s:String>
+	
+	
+	
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="D:\Dev\Freedom\Source\packages\Machine.Specifications.0.9.3\lib\net45\Machine.Specifications.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\Robison\.nuget\packages\AspNet.Security.OpenIdConnect.Server\1.0.0-beta5-final\lib\net451\AspNet.Security.OpenIdConnect.Server.dll" /&gt;&#xD;
